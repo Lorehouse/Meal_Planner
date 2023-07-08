@@ -1,3 +1,27 @@
+import random
+def weekly_dinners():
+    casserole, mexican, level_2, instant_pot = dinner_categories()
+    print(casserole, mexican, level_2, instant_pot)
+    CYLC = cylc()
+    Monday = (f"Monday: {casserole} \n")
+    Tuesday = (f"Tuesday {mexican} \n")
+    Wednesday = (f"Wednesday: {CYLC} \n")
+    Thursday = (f"Thursday: {level_2} \n")
+    Friday = ("Friday: pizza \n")
+    Saturday = ("Saturday: grill \n")
+    Sunday = (f"Sunday: {instant_pot} \n")
+    print(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+
+def dinner_categories():
+    casserole = ("enchiladas", "baked spaghetti", "chicken broccoli bake", "lasagna")
+    casserole = random.choice(casserole)
+    mexican = ("blank")
+    level_2 = ("blank")
+    instant_pot = ("blank")
+    all_categories = (casserole, mexican, level_2, instant_pot)
+    return (casserole, mexican, level_2, instant_pot)
+
 #CYL Chicken requires chicken, starch, two vegetables, seasoning 
 import random
 def cylc():
@@ -19,5 +43,4 @@ def seasonings():
     seasoning = (go_to, faux_french, kofte, turkish, autumn, faux_italian, jerk, "cajun", "ranch")
     return(random.choice(seasoning))
 
-CYLC = cylc()
-print(CYLC)
+weekly_dinners()
