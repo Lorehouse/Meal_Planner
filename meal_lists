@@ -1,6 +1,7 @@
 import random
 def weekly_dinners():
     casserole, mexican, level_2, instant_pot = dinner_categories()
+    bowl = food_in_a_bowl()
     print(casserole, mexican, level_2, instant_pot)
     CYLC = cylc()
     Monday = (f"Monday: {casserole} \n")
@@ -8,7 +9,7 @@ def weekly_dinners():
     Wednesday = (f"Wednesday: {CYLC} \n")
     Thursday = (f"Thursday: {level_2} \n")
     Friday = ("Friday: pizza \n")
-    Saturday = ("Saturday: grill \n")
+    Saturday = (f"Saturday: {bowl} \n")
     Sunday = (f"Sunday: {instant_pot} \n")
     print(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
 
@@ -16,11 +17,31 @@ def weekly_dinners():
 def dinner_categories():
     casserole = ("enchiladas", "baked spaghetti", "chicken broccoli bake", "lasagna")
     casserole = random.choice(casserole)
-    mexican = ("blank")
+    mexican = ("tacos", "burritos", "fajitas", "mexican rice bowls")
+    mexican =  random.choice(mexican)
     level_2 = ("blank")
-    instant_pot = ("blank")
-    all_categories = (casserole, mexican, level_2, instant_pot)
+    instant_pot = ("pork pot roast", "beef pot roast", "beef stroganoff", "split pea soup", "goulash", )
+    instant_pot = random.choice(instant_pot)
     return (casserole, mexican, level_2, instant_pot)
+
+def food_in_a_bowl():
+    toppings = bowl_toppings()
+    meat = ("chicken", "ground pork", "ground beef", "meatballs", "kofte", "egg", "pork", "steak")
+    vegetable = ("broccoli", "peppers", "green beans", "corn", "peas", "carrots", "asparagus")
+    bowl = ("rice", random.choice(meat), random.choice(vegetable), toppings)
+    return bowl
+
+def bowl_toppings():
+    mediterranean = ("parsley, lemon slices, feta, tzatziki")
+    italian = ("basil, tomatoes, olive oil, parmesan")
+    faux_asian = ("sesame seeds, scallions, soy sauce, ginger, sesame oil")
+    faux_thai = ("crushed peanuts, coconut curry sauce, scallions")
+    mid_med = ("cacik, sesame seeds, feta, pepper paste, mint")
+    mexish = ("cilantro, tomatoes, avocado, lime widges, salsa, cheese")
+    murican = ("cheddar, sour cream, scallions, bacon bits")
+    toppings = (mediterranean, italian, faux_asian, faux_thai, mid_med, mexish, murican)
+    toppings = random.choice(toppings)
+    return toppings
 
 #CYL Chicken requires chicken, starch, two vegetables, seasoning 
 import random
