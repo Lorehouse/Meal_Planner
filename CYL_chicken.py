@@ -19,5 +19,6 @@ def seasonings():
     seasoning = (go_to, faux_french, kofte, turkish, autumn, faux_italian, jerk, "cajun", "ranch")
     return(random.choice(seasoning))
 
-CYLC = cylc()
-print(CYLC)
+if __name__ == "__main__":
+    CYLC = cylc()
+    print(CYLC)
