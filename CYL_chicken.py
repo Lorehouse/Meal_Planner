@@ -9,13 +9,13 @@ def cylc():
     return(CYLC)
 
 def seasonings():
-    go_to = ("salt", "pepper", "garlic powder", "onion powder", "smoked paprika")
-    faux_french = ("salt", "pepper", "tarragon", "marjoram", "sage", "garlic powder", "minced onion")
-    kofte = ("salt", "pepper", "pul biber", "cumin", "sumac","minced onion")
-    turkish = ("salt", "pepper", "pul biber", "parsley", "garlic")
-    autumn = ("salt", "pepper", "onion powder", "sage", "nutmeg")
-    faux_italian = ("salt", "pepper", "garlic powder", "oregano", "basil", "thyme", "parmesan powder")
-    jerk = ("salt", "onion powder", "garlic powder", "cayenne pepper", "smoked paprika", "allspice", "pepper", "pepper flakes", "cumin", "nutmeg", "cinnamon", "brown sugar", "thyme", "parsley")
+    go_to = ("Go-to: salt pepper, garlic powder, onion powder, smoked paprika")
+    faux_french = ("French: salt, pepper, tarragon, marjoram, sage, garlic powder, minced onion")
+    kofte = ("kofte: salt, pepper, pul biber, cumin, sumac","minced onion")
+    turkish = ("Turkish: salt, pepper, pul biber, parsley, garlic")
+    autumn = ("Autumn: salt, pepper, onion powder, sage, nutmeg")
+    faux_italian = ("Italian: salt, pepper, garlic powder, oregano, basil, thyme, parmesan powder")
+    jerk = ("Jerk: salt, onion powder, garlic powder, cayenne pepper, smoked paprika, allspice, pepper, pepper flakes, cumin, nutmeg, cinnamon, brown sugar, thyme, parsley")
     seasoning = (go_to, faux_french, kofte, turkish, autumn, faux_italian, jerk, "cajun", "ranch")
     return(random.choice(seasoning))
 
