@@ -1,50 +1,148 @@
 import random
 from CYL_chicken import cylc
 def weekly_dinners():
-    casserole, mexican, level_2, instant_pot, weekend, grill = dinner_categories()
+    casserole, mexican, OnePot, level_two, instant_pot, weekend, grill, cold_dinner = dinner_categories()
     bowl = food_in_a_bowl()
-    french = bonnefemme()
     CYLChicken = cylc()
     lunch = cold_lunch()
-    dinner = hot_lunch()
-    Monday = (f"Monday:\n\t Lunch: {lunch}\n\t Dinner: {dinner} \n")
-    lunch = cold_lunch()
-    Tuesday = (f"Tuesday:\n\t Lunch: {lunch}\n\t Dinner: {mexican} \n")
+    dinner = cold_dinner
+    pizza = ("pizza", "fish sticks", "nuggets", "quesadillas", "grilled cheese", "mac and cheese", "pasta", "ramen", "popovers", "quiche",{OnePot},{cold_dinner})
+    pizza = random.choice(pizza)
+    
+    selection = False
+    choice = False
+    while selection == False:
+        weather = input("Is this week hot or cold?").lower()
+        if weather == "hot":
+            t_day = cold_dinner
+            h_day = grill
+            choice = True
+            selection = True
+            break
+        elif weather == "cold":
+            t_day = input("Would you like a bowl or a casserole? ").lower()
+            if t_day == "bowl":
+                t_day = bowl
+                selection = True
+                break
+            elif t_day == "casserole":
+                t_day = casserole
+                selection = True
+                break
+            else:
+                print("Please type 'bowl' or 'casserole'.")
+                continue
+        else:
+            print("Please type 'hot' or 'cold'.")
+            continue
+    
+    while choice == False:
+        h_day = input("How much effort should dinner be, Level One or Two? ").lower()
+        if h_day == "one" or h_day == "1":
+            h_day = dinner
+            choice = True
+            break
+        elif h_day == "two" or h_day == "2":
+            h_day = level_two
+            choice = True
+            break 
+        else:
+            print("Please type '1' or '2'.")
+            pass
+        
+    Monday = (f"Monday:\n\t Lunch: {lunch}\n\t Dinner: {mexican} \n")
+    lunch = hot_lunch()
+    Tuesday = (f"Tuesday:\n\t Lunch: {lunch}\n\t Dinner: {t_day} \n")
     lunch = hot_lunch()
     Wednesday = (f"Wednesday:\n\t Lunch: {lunch}\n\t Dinner: {CYLChicken} \n")
+    lunch = hot_lunch()
+    Thursday = (f"Thursday:\n\t Lunch: {lunch}\n\t Dinner: {h_day} \n")
     lunch = cold_lunch()
-    Thursday = (f"Thursday:\n\t Lunch: {lunch}\n\t Dinner: {level_2} \n")
-    lunch = cold_lunch()
-    Friday = (f"Friday:\n\t Lunch: {lunch}\n\t Dinner: pizza \n")
+    Friday = (f"Friday:\n\t Lunch: {lunch}\n\t Dinner: {OnePot} \n")
     lunch = hot_lunch()
     Saturday = (f"Saturday:\n\t Lunch: {lunch}\n\t Dinner: {weekend} \n")
-    lunch = cold_lunch()
-    Sunday = (f"Sunday:\n\t Lunch: {lunch}\n\t Dinner: {grill} \n")
+    lunch = hot_lunch()
+    Sunday = (f"Sunday:\n\t Lunch: {lunch}\n\t Dinner: {instant_pot} \n")
     print(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
 
 
 def dinner_categories():
-    casserole = ("enchiladas", "baked spaghetti", "chicken broccoli bake", "lasagna", "hash")
+    casserole = (
+        "enchiladas", 
+        "baked spaghetti", 
+        "chicken broccoli bake", 
+        "lasagna", 
+        "hash",)
     casserole = random.choice(casserole)
-    mexican = ("tacos", "burritos", "fajitas", "mexican rice bowls")
+    mexican = ("tacos", "burritos", "fajitas", "nachos")
     mexican =  random.choice(mexican)
-    level_2 = (f"Bonne Femme Chicken:{bonnefemme()}","hash", "crepes", "stromboli", "pita", "taco salad", "risotto", "curry")
-    level_2 = random.choice(level_2)
-    instant_pot = ("pork pot roast", "beef pot roast", "beef stroganoff", "split pea soup", "goulash", "chili")
+    OnePot = (
+        "stew",
+        "spanakorizo, https://www.beryl.nyc/index.php/2024/03/08/spanakorizo/",
+        "Milho, https://www.beryl.nyc/index.php/2024/03/08/milho/",
+        "Przeni Kupus sa Kobasicama, https://www.beryl.nyc/index.php/2024/03/08/przeni-kupus-sa-kobasicama/",
+    )
+    OnePot = random.choice(OnePot)
+    level_2 = (
+        f"Bonne Femme Chicken:{bonnefemme()}",
+        "hash", 
+        "crepes", 
+        "stromboli", 
+        "pita", 
+        "taco salad", 
+        "risotto", 
+        "curry",)
+    level_two = random.choice(level_2)
+    instant_pot = (
+        "pork pot roast", 
+        "beef pot roast", 
+        "beef stroganoff", 
+        "split pea soup", 
+        "goulash", 
+        "chili",
+        "pulled pork",
+        "red beans and rice",
+        "cowboy beans and rice")
     instant_pot = random.choice(instant_pot)
-    weekend = ("quiche", "french toast", "bacon and eggs", "chicken nuggets", "fish")
+    weekend = (
+        "quiche", 
+        "french toast", 
+        "bacon and eggs", 
+        "chicken nuggets", 
+        "fish",
+        "sandwiches",
+        "quesadillas",)
     weekend = random.choice(weekend)
-    grill = ("burgers", "brats", "chicken thighs", "boneless chicken", "whole chicken", "kebab", "kofte")
+    grill = ("burgers",
+             "brats",
+             "chicken thighs",
+             "boneless chicken",
+             "whole chicken",
+             "kebab",
+             "kofte",)
     grill = random.choice(grill)
-    return (casserole, mexican, level_2, instant_pot, weekend, grill)
+    cd_dinn = ("kimbap", 
+               "taco salad", 
+               "gazpacho", 
+               "spring rolls", 
+               "sandwiches", 
+               "charcuterie",
+               "cowboy caviar",
+               "black bean, rice, corn salad",
+               "cold chicken pita",
+               "panzanella")
+    cold_dinner = random.choice(cd_dinn)
+    return (casserole, mexican, OnePot, level_two, instant_pot, weekend, grill, cold_dinner)
 
 def cold_lunch():
-    cd_lunch = ("pasta salad", "sandwiches", "wraps", "charcuterie", "chicken salad", "couscous")
-    return cd_lunch
+    cd_lunch = ("pasta salad", "sandwiches", "wraps", "charcuterie", "chicken salad", "couscous", "quesadillas")
+    lunch = random.choice(cd_lunch)
+    return lunch
 
 def hot_lunch():
-    ht_lunch = ("ramen", "pasta", "grilled cheese", "popovers", "dutch baby", "chips and dip", "mac and cheese", "nuggets and fries", "fish sticks")
-    return ht_lunch
+    ht_lunch = ("ramen", "pasta", "grilled cheese", "popovers", "dutch baby", "chips and dip", "mac and cheese", "nuggets and fries", "fish sticks", "sweet potato", "baked potato")
+    lunch = random.choice(ht_lunch)
+    return lunch
 
 def bonnefemme():
     meat = ("chicken", "pork chops")
@@ -100,7 +198,7 @@ def bowl_toppings():
     mid_med = ("cacik, sesame seeds, feta, pepper paste, mint")
     mexish = ("cilantro, tomatoes, avocado, lime widges, salsa, cheese")
     murican = ("cheddar, sour cream, scallions, bacon bits")
-    toppings = (mediterranean, italian, faux_asian, faux_thai, mid_med, mexish, murican)
+    toppings = (mediterranean, italian, faux_asian, faux_thai, mid_med, mexish, murican, "bulgogi")
     toppings = random.choice(toppings)
     return toppings
 
